@@ -28,7 +28,7 @@ body{
 
 /* Анимация времени */
 
-    --anim-slow: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --anim-slow: 2500ms cubic-bezier(0.4, 0, 0.2, 1);
     --modal-idx: 100;
 
 }
@@ -755,13 +755,26 @@ img{
     border: none;
     background-color: var(--border-color);
     border-radius: 50%;
-    background: var(--border-color);
+
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: background-color var(--anim-slow);
 }
 
 .modal-icon{
     fill: var(--link-color);
+    transition: fill var(--anim-slow);
+}
+
+.modal-btn:hover,
+.modal-btn:focus{
+    background-color: var(--button-color);
+    fill: var(--white-color);
+}
+
+.modal-btn:hover .modal-icon,
+.modal-btn:focus .modal-icon{
+    fill: var(--white-color);
 }
 
 .modal-str{
@@ -822,6 +835,7 @@ img{
 
     transform: translateY(-50%);
     transition: fill var(--anim-slow);
+    pointer-events: none;
 }
 
 .modal-form-field:focus + .modal-form-icon{
@@ -829,6 +843,7 @@ img{
 }
 
 .modal-form-message{
+    outline: transparent;
     display: block;
     width: 100%;
     height: 108px;
@@ -840,11 +855,12 @@ img{
     margin-bottom: 16px;
 
     resize: none;
-    transition: outline-color var(--anim-slow);
+    transition: border-color var(--anim-slow);
 }
 
 .modal-form-message:focus{
-    outline-color: var(--main-color);
+    border-color: var(--main-color);
+
 }
 
 .modal-form-message::placeholder{
@@ -866,11 +882,11 @@ img{
 }
 
 .modal-form-custom-checkbox{
-
+    cursor: pointer;
 }
 
 .check{
-    border: 1px solid var(--backdrop);
+    border: 1px solid var(--link-color);
     border-radius: 2px;
     fill: var(--modal-background);
     opacity: 0;
@@ -896,6 +912,7 @@ img{
     padding-left: 4px;
     color: var(--border-radius);
     letter-spacing: 0.04em;
+    user-select: none;
 }
 
 .modal-form-check-link{
