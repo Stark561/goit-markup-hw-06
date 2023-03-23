@@ -28,7 +28,7 @@ body{
 
 /* Анимация времени */
 
-    --anim-slow: 2500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --anim-slow: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     --modal-idx: 100;
 
 }
